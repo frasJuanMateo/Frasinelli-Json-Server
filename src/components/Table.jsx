@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react'
+import axios from 'axios';
 
-function Table({data}) {
+function Table({ data, deletePost }) {
+
     return (
         <>
             <table>
@@ -16,7 +18,7 @@ function Table({data}) {
                     <th>{post.surname}</th>
                     <th>{post.age}</th>
                     <th>{post.phone_number}</th>
-                    <th><button>Borrar</button></th>
+                    <th><button value={post.id} onClick={deletePost}>Borrar</button></th>
                 </tr>)}
             </table>
         </>

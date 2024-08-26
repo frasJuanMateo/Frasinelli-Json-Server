@@ -1,13 +1,33 @@
 {
-    "posts": [
-      { "id": "1", "name": "Juan Mateo", "surname": "Frasinelli", "age": 16, "phone_number":"351-512-8482" },
-      { "id": "2", "name": "Franco Alejandro", "surname": "Pedrazzi", "age": 16, "phone_number":"351-404-2424" }
-    ],
-    "comments": [
-      { "id": "1", "text": "a comment about post 1", "postId": "1" },
-      { "id": "2", "text": "another comment about post 1", "postId": "1" }
-    ],
-    "profile": {
-      "name": "typicode"
+  "posts": [
+    {
+      "id": "1",
+      "name": "Juan Mateo",
+      "surname": "Frasinelli",
+      "age": 16,
+      "phone_number": "351-512-8482"
+    },
+    {
+      "id": "2",
+      "name": "Franco Alejandro",
+      "surname": "Pedrazzi",
+      "age": 16,
+      "phone_number": "351-404-2424"
     }
+  ],
+  "comments": [
+    {
+      "id": "1",
+      "text": "a comment about post 1",
+      "postId": null
+    },
+    {
+      "id": "2",
+      "text": "another comment about post 1",
+      "postId": null
+    }
+  ],
+  "profile": {
+    "name": "typicode"
   }
+}

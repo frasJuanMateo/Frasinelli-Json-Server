@@ -7,17 +7,23 @@ import axios from 'axios';
 
 function App() {
   const [table, setTable] = useState([]);
+  const deletePost = (event) => {
+    axios.delete(`http://localhost:3000/posts/${event.target.value}`);
+    axios.get("http://localhost:3000/posts")
+      .then(json => setTable(json.data));
+  }
 
   useEffect(() => {
     axios.get("http://localhost:3000/posts")
-    .then(json => setTable(json.data));
+      .then(json => setTable(json.data));
   }, []);
+
 
   return (
     <>
       <NavBar />
-      <Form />
-      <Table data={table} />
+      <Form data={table}/>
+      <Table data={table} deletePost={deletePost} />
       <Footer />
     </>
   )
