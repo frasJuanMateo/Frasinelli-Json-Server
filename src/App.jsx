@@ -6,23 +6,29 @@ import Footer from './components/Footer.jsx'
 import axios from 'axios';
 
 function App() {
+  const baseUrl = "http://localhost:3000/posts"
   const [table, setTable] = useState([]);
+
   const deletePost = (event) => {
     axios.delete(`http://localhost:3000/posts/${event.target.value}`);
-    axios.get("http://localhost:3000/posts")
-      .then(json => setTable(json.data));
+  }
+
+  const addPost = (post) => {
+    axios.post(baseUrl, post)
+    .catch(error => {
+      console.log(error);
+    });
   }
 
   useEffect(() => {
-    axios.get("http://localhost:3000/posts")
+    axios.get(baseUrl)
       .then(json => setTable(json.data));
-  }, []);
-
+  }, );
 
   return (
     <>
       <NavBar />
-      <Form data={table}/>
+      <Form data={table} addPost={addPost}/>
       <Table data={table} deletePost={deletePost} />
       <Footer />
     </>
