@@ -6,12 +6,16 @@ function Form({ data, addPost }) {
     const [post, setPost] = useState({name: "", surname: "", age:"", phone_number:""});
     const handleSubmit = (event) => {
         event.preventDefault();
-        if(phoneRegex.test(post.phone_number)) {
+        if (post.name.length < 4 || (/\d/.test(post.name))) {alert("Nombre invalido");}
+        else if (post.surname.length < 4 || (/\d/.test(post.surname))) {alert("Apellido invalido");}
+        else if (parseInt(post.age) > 150 || parseInt(post.age) < 0) {alert("Edad invalida");}
+        else if(!(phoneRegex.test(post.phone_number))) {alert("Numero invalido");}
+        else {
             addPost(post);
             setPost({name: "", surname: "", age:"", phone_number:""});
         }
-        else {console.log("Numero invalido");}
     };
+
     const handleChange = (event) => {
         const { name, value } = event.target;
         setPost({
@@ -20,7 +24,7 @@ function Form({ data, addPost }) {
         });
     }
     return (
-        <>
+        <div style={{margin:"5%"}}>
             <form onSubmit={handleSubmit}>
                 <label>
                     Nombre:
@@ -40,7 +44,7 @@ function Form({ data, addPost }) {
                 </label>
                 <input type="submit" value="Subir" />
             </form>
-        </>
+        </div>
     )
 }
 
